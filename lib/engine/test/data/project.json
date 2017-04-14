@@ -1,0 +1,45 @@
+[{
+  "id":"1",
+  "name":"project1",
+  "depth":2,
+  "start_url":"http://s.wanfangdata.com.cn/Paper.aspx?q=docker&f=top&p=1",
+  "rule_store":[{
+    "url_pattern":[
+      "http://s.wanfangdata.com.cn/Paper.aspx.*?"
+    ],
+    "link_parse_rule":[{
+      "mode": "css",
+      "type": "link",
+      "expression": ".pager a",
+      "target": "@href"
+    }],
+    "content_parse_rule":[{
+      "name":"record",
+      "mode":"css",
+      "expression":".record-item-list .record-item",
+      "isGroup":true,
+      "list":[{
+          "name":"title",
+          "mode":"css",
+          "expression":".record-title .title",
+          "target":"text"
+        },
+        {
+          "name":"description",
+          "mode":"css",
+          "expression":".record-desc",
+          "target":"text"
+        },
+        {
+          "name":"link",
+          "mode":"css",
+          "expression":".record-title .title",
+          "target":"@href",
+          "type":"link"
+        }]
+      }],
+    "request_options":{
+      "isDynamic":false
+    }
+    }]
+  }]
