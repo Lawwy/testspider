@@ -1,0 +1,14 @@
+{
+  "pipeline":{
+    "pre": ["saveItems"]
+  },
+  "download":{
+    "pre":["userAgent","proxy"],
+    "post":["redirect","record.record"],
+    "err":["record.errRecord"]
+  },
+  "linkparse":{
+    "pre":["defaultLinkRules"]
+  },
+  "contentparse":{}
+}
